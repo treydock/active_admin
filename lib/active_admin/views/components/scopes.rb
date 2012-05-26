@@ -64,10 +64,11 @@ module ActiveAdmin
       # Return the count for the scope passed in.
       def get_scope_count(scope)
         if params[:q]
-          search(scope_chain(scope, scoping_class)).relation.count
+          search(scope_chain(scope, scoping_class)).relation.count(:distinct => true)
         else 
-          scope_chain(scope, scoping_class).count
+          scope_chain(scope, scoping_class).count(:distinct => true)
         end
+#        scope_chain(scope, scoping_class).count(:distinct => true)
       end
 
       def scoping_class
