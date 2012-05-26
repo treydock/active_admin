@@ -68,7 +68,6 @@ module ActiveAdmin
         else 
           scope_chain(scope, scoping_class).count(:distinct => true)
         end
-#        scope_chain(scope, scoping_class).count(:distinct => true)
       end
 
       def scoping_class
